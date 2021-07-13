@@ -3,11 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wbpack Exercise</title>
+    <title>todollistapk</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
   <script defer src="main.bundle.js"></script></head>
   <body>
-    <h1>Hello webpack!</h1>
-    <p>Entout cas Vraiment nian furai sana</p>
-    <p>Entout cas Vraiment nian furai sana</p>
+    <div class="container">
+     <div class="flex">
+      <header class="header">
+        <p>Today's Task</p>
+       <div class="clearall">
+        <i class="uil uil-sync"></i>
+       </div>
+      </header>
+
+      <div class="content">
+        <div class="add-item">
+          <input type="text" name="input" id="addlist" placeholder="Add to your list">
+        </div>
+
+        <ul class="list">
+
+        </ul>
+
+        <button type="submit" id="clear-all">Clear All completed</button>
+
+      </div>
+     </div>
+    </div>
+  
   </body>
 </html>
