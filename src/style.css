@@ -29,8 +29,6 @@ header p {
 }
 
 #clear-all {
-  /* bottom: 0; */
-  /* position: absolute; */
   left: 0;
   right: 0;
   width: 100%;
@@ -38,7 +36,6 @@ header p {
   box-shadow: 0 4px 2px -2px gray;
   font-size: 17px;
   font-weight: 500;
-  
 }
 
 .content {
@@ -76,11 +73,6 @@ header p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding:0 10px;
+  padding: 0 10px;
   border: 1px solid rgb(51, 50, 50);
-}
-
-.item p {
-  /* margin-right: 100px; */
 }
