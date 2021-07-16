@@ -30,11 +30,27 @@ header p {
   justify-content: space-between;
 }
 
-.check label {
-  margin-left: 20px;
+.visible {
+  display: block;
 }
 
-.check input {
+.trash {
+  display: none;
+}
+
+.focus {
+  background-color: dodgerblue;
+}
+
+.check .text {
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: black;
+}
+
+.check input[type="checkbox"] {
   width: 18px;
   height: 18px;
 }

@@ -1,4 +1,7 @@
 /* eslint-disable import/prefer-default-export */
+
+import { editInput } from "./index";
+
 export const update = () => {
   const checkbox = document.querySelectorAll('.check-box');
 
@@ -6,7 +9,8 @@ export const update = () => {
   checkBoxArr.forEach((checktodo) => {
     checktodo.addEventListener('click', (e) => {
       const parent = e.target.parentElement;
-      const label = parent.children[1];
+      
+      const editinput = parent.querySelector('.text');
 
       const todos = JSON.parse(localStorage.getItem('List'));
 
@@ -14,11 +18,11 @@ export const update = () => {
       if (e.target.checked) {
         todos[index].completed = true;
         localStorage.setItem('List', JSON.stringify(todos));
-        label.style.textDecoration = 'line-through';
+        editinput.style.textDecoration = 'line-through';
       } else {
         todos[index].completed = false;
         localStorage.setItem('List', JSON.stringify(todos));
-        label.style.textDecoration = 'none';
+        editinput.style.textDecoration = 'none';
       }
     });
   });

@@ -24,6 +24,7 @@ export function dragDrop() {
     list.insertBefore(draggable, afterElement);
   });
 
+
   function dragAfterElement(listContainer, y) {
     const draggableElements = [...listContainer.querySelectorAll('.item:not(.dragging)')];
 
