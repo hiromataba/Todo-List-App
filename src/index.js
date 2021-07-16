@@ -1,50 +1,58 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable import/no-cycle */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 
 import './style.css';
 import { dragDrop } from './dragtask';
 import { update } from './update';
+import {
+ addTodo, clearCompleted, editTask, removeElement,
+} from './addandremove';
 
 export const list = document.querySelector('.list');
 export const form = document.getElementById('form');
-const clearAll = document.querySelector('#clear-all');
-let arr = JSON.parse(localStorage.getItem('List')) || [];
+export const clearAll = document.querySelector('#clear-all');
+export const arr = JSON.parse(localStorage.getItem('List')) || [];
+const refresh = document.querySelector('.refresh');
 
-  arr.forEach((task) => {
-    list.innerHTML += `<li class="item" draggable="true">
+refresh.addEventListener('click', () => {
+  location.reload();
+});
+
+arr.forEach((task) => {
+  list.innerHTML += `<li class="item" draggable="true">
                             <div class="check">
-                                <input type="checkbox" class="check-box" name="checkbox" id= "${task.index}" ${task.completed ? 'checked' : ''}>
-                                <label class="text ${task.completed}" for= ${task.index}> ${task.name}<labe> 
+                                <input type="checkbox" class="check-box" name="checkbox" id= "${
+                                  task.index
+                                }" ${task.completed ? 'checked' : ''}>
+                                <form id="edit-form">
+                                  <input type="text" class="text ${
+                                    task.completed
+                                  }" id= ${task.index} value="${task.name}">
+                                </form>
                             </div>
-                            <i class="uil uil-ellipsis-v job="delete"></i>
+                            <i class="uil uil-ellipsis-v visible"></i>
+                            <i class="uil uil-trash-alt trash"></i>
                        </li>`;
-  });
+});
 
+export const editForm = document.querySelectorAll('#edit-form');
+export const editFormArr = Array.from(editForm);
+export const editInput = document.querySelectorAll('.text');
+export const editInputArr = Array.from(editInput);
+
+export const trash = document.querySelectorAll('.trash');
 export const task = document.querySelectorAll('.item');
 
-form.addEventListener('submit', () => {
-  const input = document.querySelector('#addlist');
-
-  const toDo = input.value;
-  if (toDo) {
-    arr.push({
-      name: toDo,
-      completed: false,
-      index: new Date(),
-    });
-
-    localStorage.setItem('List', JSON.stringify(arr));
-  }
-  input.value = '';
-});
-
-clearAll.addEventListener('click', () => {
-  localStorage.clear();
-  list.innerHTML = '';
-  arr = [];
-});
-
+editTask();
 window.addEventListener('load', () => {
+  addTodo();
   dragDrop();
   update();
 });
+
+clearCompleted();
+
+removeElement(task, trash);

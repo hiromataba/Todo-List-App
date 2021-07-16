@@ -24,19 +24,54 @@ header p {
   margin: 0 auto;
 }
 
+.refresh {
+  font-size: 20px;
+}
+
 .check {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.check label {
-  margin-left: 20px;
+.visible {
+  display: block;
 }
 
-.check input {
+.trash {
+  display: none;
+}
+
+.focus .visible {
+  display: none;
+}
+
+.focus .trash {
+  display: block;
+  color: red;
+}
+
+.focus {
+  background-color: #f6edd0;
+}
+
+.check .text {
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: black;
+}
+
+.check input[type='checkbox'] {
   width: 18px;
   height: 18px;
+}
+
+.check form input {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 .flex {
