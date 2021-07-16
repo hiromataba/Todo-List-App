@@ -4,17 +4,12 @@ import {
   list,
   form,
   arr,
-  ellipseNode,
-  trash,
   editInput,
   editForm,
   editFormArr,
   editInputArr,
 } from './index';
 // import { update } from "./update";
-
-const taskArr = document.querySelectorAll('.item');
-const tasks = Array.from(taskArr);
 
 export function clearCompleted() {
   clearAll.addEventListener('click', (e) => {
@@ -51,20 +46,41 @@ export function editTask() {
       e.preventDefault();
       const value = form.querySelector('.text').value;
       const id = Number(form.querySelector('.text').id);
-      arr.forEach((item) => {
+      const newArr = JSON.parse(localStorage.getItem('List')) || [];
+      newArr.forEach((item) => {
         if (item.index === id) {
           item.name = value;
-          localStorage.setItem('List', JSON.stringify(arr));
+          localStorage.setItem('List', JSON.stringify(newArr));
+          location.reload();
         }
       });
     });
   });
 }
 
-export function removeElement(){
+export function removeElement(task, trash) {
+  const tasks = Array.from(task);
   tasks.forEach((task) => {
-    task.addEventListener('click', () => {
-      console.log('Task')
-    })
-  })
+    task.addEventListener('click', (e) => {
+      tasks.forEach((task) => {
+        task.classList.remove('focus');
+      });
+      task.classList.add('focus');
+    });
+  });
+
+  const trashes = Array.from(trash);
+  trashes.forEach((trash) => {
+    trash.addEventListener('click', (e) => {
+      if (e.target) {
+        const parent = e.target.parentElement;
+        const childWithId = Number(parent.querySelector('.check-box').id);
+        console.log(childWithId)
+        const newArr = JSON.parse(localStorage.getItem('List')) || [];
+        const newArrFiltered = newArr.filter((task) => task.index !== childWithId );
+        localStorage.setItem('List', JSON.stringify(newArrFiltered));
+        location.reload();
+      }
+    });
+  });
 }

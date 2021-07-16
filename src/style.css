@@ -24,6 +24,10 @@ header p {
   margin: 0 auto;
 }
 
+.refresh {
+  font-size: 20px;
+}
+
 .check {
   display: flex;
   align-items: center;
@@ -38,8 +42,17 @@ header p {
   display: none;
 }
 
+.focus .visible {
+  display: none;
+}
+
+.focus .trash {
+  display: block;
+  color: red;
+}
+
 .focus {
-  background-color: dodgerblue;
+  background-color: #f6edd0;
 }
 
 .check .text {
@@ -50,9 +63,15 @@ header p {
   color: black;
 }
 
-.check input[type="checkbox"] {
+.check input[type='checkbox'] {
   width: 18px;
   height: 18px;
+}
+
+.check form input {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 .flex {

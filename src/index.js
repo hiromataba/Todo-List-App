@@ -7,6 +7,11 @@ export const list = document.querySelector('.list');
 export const form = document.getElementById('form');
 export const clearAll = document.querySelector('#clear-all');
 export const arr = JSON.parse(localStorage.getItem('List')) || [];
+const refresh = document.querySelector('.refresh');
+
+refresh.addEventListener('click',()=>{
+  location.reload()
+})
 
 arr.forEach((task) => {
   list.innerHTML += `<li class="item" draggable="true">
@@ -30,10 +35,9 @@ export const editFormArr = Array.from(editForm);
 export const editInput = document.querySelectorAll('.text');
 export const editInputArr = Array.from(editInput);
 
-export const ellipseNode = document.querySelectorAll('.visible');
-const ellipse = Array.from(ellipseNode);
 export const trash = document.querySelectorAll('.trash');
 export const task = document.querySelectorAll('.item');
+
 
 editTask();
 window.addEventListener('load', () => {
@@ -44,4 +48,4 @@ window.addEventListener('load', () => {
 
 clearCompleted();
 
-removeElement()
+removeElement(task,trash)
