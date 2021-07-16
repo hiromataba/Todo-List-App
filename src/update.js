@@ -1,7 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 
-import { editInput } from "./index";
-
 export const update = () => {
   const checkbox = document.querySelectorAll('.check-box');
 
@@ -9,7 +7,7 @@ export const update = () => {
   checkBoxArr.forEach((checktodo) => {
     checktodo.addEventListener('click', (e) => {
       const parent = e.target.parentElement;
-      
+
       const editinput = parent.querySelector('.text');
 
       const todos = JSON.parse(localStorage.getItem('List'));

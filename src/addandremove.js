@@ -1,21 +1,21 @@
 /* eslint-disable import/prefer-default-export */
+/* eslint-disable array-callback-return */
+/* eslint-disable import/no-cycle */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-use-before-define */
+/* eslint-disable import/prefer-default-export */
 import {
   clearAll,
-  list,
   form,
   arr,
-  editInput,
-  editForm,
   editFormArr,
-  editInputArr,
 } from './index';
-// import { update } from "./update";
 
 export function clearCompleted() {
-  clearAll.addEventListener('click', (e) => {
+  clearAll.addEventListener('click', () => {
     const newArr = JSON.parse(localStorage.getItem('List')) || [];
     const filteredCompletedTask = newArr.filter(
-      (item) => item.completed !== true
+      (item) => item.completed !== true,
     );
     localStorage.setItem('List', JSON.stringify(filteredCompletedTask));
     location.reload();
@@ -44,7 +44,7 @@ export function editTask() {
   editFormArr.forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const value = form.querySelector('.text').value;
+      const { value } = form.querySelector('.text');
       const id = Number(form.querySelector('.text').id);
       const newArr = JSON.parse(localStorage.getItem('List')) || [];
       newArr.forEach((item) => {
@@ -61,7 +61,7 @@ export function editTask() {
 export function removeElement(task, trash) {
   const tasks = Array.from(task);
   tasks.forEach((task) => {
-    task.addEventListener('click', (e) => {
+    task.addEventListener('click', () => {
       tasks.forEach((task) => {
         task.classList.remove('focus');
       });
@@ -75,9 +75,9 @@ export function removeElement(task, trash) {
       if (e.target) {
         const parent = e.target.parentElement;
         const childWithId = Number(parent.querySelector('.check-box').id);
-        console.log(childWithId)
+        console.log(childWithId);
         const newArr = JSON.parse(localStorage.getItem('List')) || [];
-        const newArrFiltered = newArr.filter((task) => task.index !== childWithId );
+        const newArrFiltered = newArr.filter((task) => task.index !== childWithId);
         localStorage.setItem('List', JSON.stringify(newArrFiltered));
         location.reload();
       }

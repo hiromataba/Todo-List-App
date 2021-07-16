@@ -1,7 +1,15 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable import/no-cycle */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-use-before-define */
+/* eslint-disable import/prefer-default-export */
+
 import './style.css';
 import { dragDrop } from './dragtask';
 import { update } from './update';
-import { addTodo, clearCompleted, editTask, removeElement } from './addandremove';
+import {
+ addTodo, clearCompleted, editTask, removeElement,
+} from './addandremove';
 
 export const list = document.querySelector('.list');
 export const form = document.getElementById('form');
@@ -9,9 +17,9 @@ export const clearAll = document.querySelector('#clear-all');
 export const arr = JSON.parse(localStorage.getItem('List')) || [];
 const refresh = document.querySelector('.refresh');
 
-refresh.addEventListener('click',()=>{
-  location.reload()
-})
+refresh.addEventListener('click', () => {
+  location.reload();
+});
 
 arr.forEach((task) => {
   list.innerHTML += `<li class="item" draggable="true">
@@ -38,7 +46,6 @@ export const editInputArr = Array.from(editInput);
 export const trash = document.querySelectorAll('.trash');
 export const task = document.querySelectorAll('.item');
 
-
 editTask();
 window.addEventListener('load', () => {
   addTodo();
@@ -48,4 +55,4 @@ window.addEventListener('load', () => {
 
 clearCompleted();
 
-removeElement(task,trash)
+removeElement(task, trash);
