@@ -14,9 +14,15 @@ describe('addTodo', () => {
     expect(todos.length).toBeGreaterThan(0);
   });
 
-  it('should throw an error if no  is given', () => {
+  it('should throw an error if no taskId is given', () => {
     expect(() => {
       todoAction.removeElement();
     }).toThrow();
+  });
+
+  it('should check if taskId is given', () => {
+    todoAction.removeElement(2);
+    const todos = JSON.parse(localStorage.getItem('List')) || [];
+    expect(todos.length).toBeGreaterThan(0);
   });
 });
