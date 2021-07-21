@@ -1,5 +1,7 @@
 function Todo(name, id) {
-  (this.name = name), (this.id = id), (this.completed = false);
+  this.name = name;
+  this.id = id;
+  this.completed = false;
 }
 
 function addTodo(name) {
@@ -8,7 +10,6 @@ function addTodo(name) {
   const todo = new Todo(name, arr.length + 1);
   arr.push(todo);
   localStorage.setItem('List', JSON.stringify(arr));
-  
 }
 
 function removeElement(taskId) {
@@ -16,7 +17,6 @@ function removeElement(taskId) {
   const newArr = JSON.parse(localStorage.getItem('List')) || [];
   const newArrFiltered = newArr.filter((task) => task.id !== taskId);
   localStorage.setItem('List', JSON.stringify(newArrFiltered));
-
 }
 
 export default { addTodo, removeElement };

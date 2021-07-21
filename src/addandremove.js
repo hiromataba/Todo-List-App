@@ -40,8 +40,6 @@ export function addTodo() {
   });
 }
 
-
-
 export function editTask() {
   editFormArr.forEach((form) => {
     form.addEventListener('submit', (e) => {

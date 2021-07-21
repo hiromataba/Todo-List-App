@@ -1,5 +1,5 @@
 import todoAction from './__mocks__/addRemovemMock';
-import "./__mocks__/localStorageMock"
+import './__mocks__/localStorageMock';
 
 describe('addTodo', () => {
   it('should throw an error if no name is given', () => {
