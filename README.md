@@ -21,6 +21,10 @@ To get a local copy up and running follow these simple example steps.
 1. Copy this link `https://github.com/hiromataba/Todo-List-App` and type git clone `https://github.com/hiromataba/Todo-List-App` in your terminal to get and run this project locally
 2. Run the live server or simply open index.html in dist folder with your browser.
 
+## Test Aplication
+
+1. After cloning the project, open your terminal and install npm  after run "npm test" to check the tests
+
 ## Authors
 
 👤 **Aganze Mataba Henri**
