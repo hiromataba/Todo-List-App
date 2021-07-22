@@ -1,7 +1,7 @@
 {
   "name": "webpack-setup",
   "version": "1.0.0",
-  "description": "",
+  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
   "scripts": {
     "test": "jest --watch",
@@ -32,5 +32,9 @@
   },
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
   }
 }
