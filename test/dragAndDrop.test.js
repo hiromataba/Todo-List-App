@@ -14,10 +14,20 @@ describe('dragAndDrop', () => {
     }).toThrow();
   });
 
-  it('should throw an error if no item is given', () => {
+  it('should check the length of the array ', () => {
+    dragAndDrop.clearCompleted('Drink cofee');
+    const newArr = JSON.parse(localStorage.getItem('List')) || [];
+    expect(newArr.length).toBeGreaterThan(0);
+  });
+
+  it('should throw an error if no item ', () => {
     expect(() => {
       dragAndDrop.update();
     }).toThrow();
+  });
+
+  it('should return the value of updateIndex', () => {
+    expect(dragAndDrop.update(true, false)).toBeTruthy();
   });
 
   it('should throw an error if no item is given', () => {
